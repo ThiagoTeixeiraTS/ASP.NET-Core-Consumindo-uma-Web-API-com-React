@@ -1,4 +1,5 @@
 using AlunosApi.Context;
+using AlunosApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,8 @@ namespace AlunosApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AlunosApi", Version = "v1" });
             });
+
+            services.AddScoped<IAlunoService, AlunosService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
